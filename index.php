@@ -20,14 +20,38 @@
         }
 
         public function printMe(){
-            echo "Io sono un articolo!<br> Ho un peso di: " . $this->peso."<br> Un' altezza di: " . $this->height."<br> Una grandezza di: " . $this->width;
+            echo "Io sono un articolo!<br> Ho un peso di: " . $this->peso."<br> Un' altezza di: " . $this->height."<br> Una grandezza di: " . $this->width."<br>";
         }
     }
 
     $article=new Product(10,2,5);
     $article->printMe();
-;
+
+    //---------------------------------------------------------------------------
+    class Friut{
+        public $name;
+        public $color;
+        public $peso;
+        public $price;
+        
+        public function __construct($name,$color,$peso,$price){
+            $this->name=$name;
+            $this->color=$color;
+            $this->peso=$peso;
+            $this->price=$price;            
+        }
+        public function printMe(){
+            echo "<br>Io sono una ".$this->name."<br> Ho un colore " . $this->color."<br> Peso: " . $this->peso." grammi <br>Prezzo: " . $this->price. " cent";
+        }
+    }
     
-    ?>
+    $apple = new Friut("apple","red",90,0.2);
+    $apple->printMe();
+    
+       
+       
+       
+       
+       ?>
 </body>
 </html>
