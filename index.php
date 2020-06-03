@@ -28,7 +28,7 @@
     $article->printMe();
 
     //---------------------------------------------------------------------------
-    class Friut{
+    class Fruit{
         public $name;
         public $color;
         public $peso;
@@ -41,17 +41,27 @@
             $this->price=$price;            
         }
         public function printMe(){
-            echo "<br>Io sono una ".$this->name."<br> Ho un colore " . $this->color."<br> Peso: " . $this->peso." grammi <br>Prezzo: " . $this->price. " cent";
+            return "<br>Io sono un/una: ".$this->name."<br> Ho un colore: " . $this->color."<br> Peso: " . $this->peso." grammi <br>Prezzo: " . $this->price. " cent <br>";
         }
     }
     
-    $apple = new Friut("apple","red",90,0.2);
-    $apple->printMe();
-    
-       
-       
-       
-       
-       ?>
+    $apple = new Fruit("apple","red",90,0.2);
+    echo $apple->printMe();
+//----------------------------------------------------
+    class Exotic extends Fruit{
+        public $provenance;
+        public function __construct($name,$color,$peso,$price,$provenance){
+            parent::__construct($name,$color,$peso,$price);
+            $this->provenance = $provenance; 
+        }
+        
+        public function printMe(){
+            $text = parent::printMe();
+            return $text."Provenienza: ".$this->provenance;
+        }
+    }
+       $mango = new Exotic("mango","red",90,1.50,"Jamaica");
+       echo $mango->printMe();
+    ?>
 </body>
 </html>
